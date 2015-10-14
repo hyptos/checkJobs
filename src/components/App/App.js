@@ -5,7 +5,7 @@ import styles from './App.css';
 import withContext from '../../decorators/withContext';
 import withStyles from '../../decorators/withStyles';
 import Header from '../Header';
-import Feedback from '../Feedback';
+import Table from '../Table';
 import Footer from '../Footer';
 
 @withContext
@@ -18,12 +18,14 @@ class App extends Component {
   };
 
   render() {
+    var fruitColors = [{
+      lime: 'Green',
+      lemon: 'Yellow',
+      orange:'Orange'
+    }];
     return !this.props.error ? (
       <div>
-        <Header />
-        {this.props.children}
-        <Feedback />
-        <Footer />
+        <Table columns={['apple', 'peach', 'cherry']} data={['toto', 'tutu', 'titi']} />
       </div>
     ) : this.props.children;
   }
