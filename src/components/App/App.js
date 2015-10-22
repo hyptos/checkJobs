@@ -18,14 +18,17 @@ class App extends Component {
   };
 
   render() {
-    var fruitColors = [{
-      lime: 'Green',
-      lemon: 'Yellow',
-      orange:'Orange'
-    }];
+  var datas = [
+    {key: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+    {key: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+    {key: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+    {key: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+    {key: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+    {key: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+  ];
     return !this.props.error ? (
       <div>
-        <Table columns={['apple', 'peach', 'cherry']} data={['toto', 'tutu', 'titi']} />
+        <Table data={datas} />
       </div>
     ) : this.props.children;
   }
