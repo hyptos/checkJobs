@@ -5,8 +5,7 @@ import styles from './App.css';
 import withContext from '../../decorators/withContext';
 import withStyles from '../../decorators/withStyles';
 import Header from '../Header';
-import SearchForm from '../SearchForm';
-import SearchResults from '../SearchResults';
+import SearchBox from '../SearchBox';
 import Footer from '../Footer';
 
 @withContext
@@ -20,23 +19,20 @@ class App extends Component {
 
   render() {
     var tableData=[
-{
-    name:'Paul Shan',
-    roll: '001'
-},
-{
-    name:'John Doe',
-    roll: '002'
-},
-{
-    name:'Sachin Tendulkar',
-    roll: '003'
-}];
+      {
+          name:'Paul Shan',
+          roll: '001'
+      },
+      {
+          name:'John Doe',
+          roll: '002'
+      },
+      {
+          name:'Sachin Tendulkar',
+          roll: '003'
+      }];
     return !this.props.error ? (
-      <div>
-        <SearchForm />
-        <SearchResults data={tableData} />
-      </div>
+        <SearchBox data={tableData} />
     ) : this.props.children;
   }
 

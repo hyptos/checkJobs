@@ -23,7 +23,7 @@ class SearchResults extends Component {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Roll No</th>
+                        <th>Roll</th>
                     </tr>
                 </thead>
                 <tbody>{rows}</tbody>
