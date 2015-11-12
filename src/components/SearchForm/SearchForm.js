@@ -12,17 +12,16 @@ class SearchForm extends Component {
     query: PropTypes.string
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       query : ''
     };
   };
 
-  doSearch(event){
-        var query = event.target.value;
-        this.state.query = query;
-        this.props.doSearch(query);
+  doSearch = (event) => {
+    this.setState({ query: event.target.value });
+    this.props.doSearch(this.state.query);
   };
 
   render(){

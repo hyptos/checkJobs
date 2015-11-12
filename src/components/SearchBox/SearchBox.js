@@ -9,40 +9,38 @@ import SearchResults from '../SearchResults';
 @withStyles(styles)
 class SearchBox extends Component {
 
-  static contextTypes = {
-    onSetTitle: PropTypes.func.isRequired,
-    query: PropTypes.string
-  };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       query : '',
-      filteredData: ''
+      filteredData: this.props.data
     };
   };
 
-  doSearch(queryText){
-      console.log("box: "+queryText);
+  doSearch = (queryText) => {
+    console.log("box: "+queryText);
       //get query result
       var queryResult=[];
-      this.props.data.forEach(function(person){
-          if(person.name.toLowerCase().indexOf(queryText)!=-1)
-          queryResult.push(person);
-      });
-
-      this.state.query = queryText;
-      this.state.filteredData = this.props.data;
-
-  };
+      if(this.props.data.length > 0){
+        this.props.data.forEach(function(person){
+          var name = person.name.toLowerCase();
+          console.log('name:'+name+' with query:'+queryText);
+            if(name.indexOf(queryText)!=-1){
+              queryResult.push(person);
+            }
+        });
+     }
+     console.log(queryResult);
+      this.setState({ query: queryText, filteredData: queryResult });
+   };
 
   render(){
-    var filteredData = this.props.data;
         return (
             <div className="SearchBox">
                 <h2>Void Canvas Instant Search</h2>
                  <SearchForm query={this.state.query} doSearch={this.doSearch}/>
-                <SearchResults data={this.props.data}/>
+                <SearchResults data={this.state.filteredData}/>
             </div>
         );
   }
