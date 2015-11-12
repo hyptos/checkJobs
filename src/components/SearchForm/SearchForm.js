@@ -9,18 +9,27 @@ class SearchForm extends Component {
 
   static contextTypes = {
     onSetTitle: PropTypes.func.isRequired,
+    query: PropTypes.string
   };
 
-
-  doSearch(){
-        var query=this.refs.searchInput.getDOMNode().value; // this is the search text
-        this.props.doSearch(query);
+  constructor() {
+    super();
+    this.state = {
+      query : ''
     };
+  };
+
+  doSearch(event){
+        var query = event.target.value;
+        this.state.query = query;
+        this.props.doSearch(query);
+  };
 
   render(){
-      return (<input type="text" ref="searchInput" placeholder="Search Name" value={this.props.query} onChange={this.doSearch}/>)
+      return (
+        <input type="text" ref="searchInput" placeholder="Search Name" value={this.state.query} onChange={this.doSearch}/>
+      )
   }
-
 }
 
 export default SearchForm;
