@@ -16,7 +16,7 @@ class SearchResults extends Component {
         var rows=[];
         if(this.props.data.length > 0){
           this.props.data.forEach(function(person, i) {
-            rows.push(<tr key={i}><td>{person.name}</td><td>{person.roll}</td></tr>)
+            rows.push(<tr key={i}><td>{person.name}</td><td>{person.email}</td><td>{person.roll}</td></tr>)
           });
         }
         //returning the table
@@ -25,6 +25,7 @@ class SearchResults extends Component {
                 <thead>
                     <tr>
                         <th>Name</th>
+                        <th>Email</th>
                         <th>Roll</th>
                     </tr>
                 </thead>

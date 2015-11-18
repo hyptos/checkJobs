@@ -21,7 +21,7 @@ class SearchForm extends Component {
 
   doSearch = (event) => {
     this.setState({ query: event.target.value });
-    this.props.doSearch(this.state.query);
+    this.props.doSearch(event.target.value);
   };
 
   render(){

@@ -7,6 +7,7 @@ import withStyles from '../../decorators/withStyles';
 import Header from '../Header';
 import SearchBox from '../SearchBox';
 import Footer from '../Footer';
+import Faker from 'faker';
 
 @withContext
 @withStyles(styles)
@@ -18,19 +19,15 @@ class App extends Component {
   };
 
   render() {
-    var tableData=[
-      {
-          name:'Paul Shan',
-          roll: '001'
-      },
-      {
-          name:'John Doe',
-          roll: '002'
-      },
-      {
-          name:'Sachin Tendulkar',
-          roll: '003'
-      }];
+    var tableData = [];
+    console.log(Faker.Name);
+      for (var i = 0; i < 10000; i++) {
+        tableData.push({
+          name: Faker.name.firstName() + ' ' + Faker.name.lastName() ,
+          email: Faker.internet.email(),
+          roll: Faker.random.number()
+        });
+      }
     return !this.props.error ? (
         <SearchBox data={tableData} />
     ) : this.props.children;

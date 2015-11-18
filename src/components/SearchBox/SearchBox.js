@@ -25,10 +25,17 @@ class SearchBox extends Component {
       if(this.props.data.length > 0){
         this.props.data.forEach(function(person){
           var name = person.name.toLowerCase();
-          console.log('name:'+name+' with query:'+queryText);
+          var email = person.email.toLowerCase();
+          queryText = queryText.toLowerCase();
             if(name.indexOf(queryText)!=-1){
               queryResult.push(person);
             }
+            // if(email.indexOf(queryText)!=-1){
+            //   if(queryResult.indexOf(queryText)==-1){
+            //     queryResult.push(person);
+            //   }
+            // }
+
         });
      }
      console.log(queryResult);
