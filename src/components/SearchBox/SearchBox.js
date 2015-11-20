@@ -44,11 +44,11 @@ class SearchBox extends Component {
 
   render(){
         return (
-            <div className="SearchBox">
-                <h2>Void Canvas Instant Search</h2>
-                 <SearchForm query={this.state.query} doSearch={this.doSearch}/>
-                <SearchResults data={this.state.filteredData}/>
-            </div>
+              <div className="SearchBox">
+                  <h2>Void Canvas Instant Search</h2>
+                  <SearchForm query={this.state.query} doSearch={this.doSearch}/>
+                  <SearchResults data={this.state.filteredData}/>
+              </div>
         );
   }
 

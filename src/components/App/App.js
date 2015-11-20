@@ -21,15 +21,20 @@ class App extends Component {
   render() {
     var tableData = [];
     console.log(Faker.Name);
-      for (var i = 0; i < 10000; i++) {
+      for (var i = 0; i < 100; i++) {
         tableData.push({
-          name: Faker.name.firstName() + ' ' + Faker.name.lastName() ,
+          company: Faker.company.companyName(),
           email: Faker.internet.email(),
-          roll: Faker.random.number()
+          jobDate: Faker.date.past(),
+          jobTitle: Faker.name.jobTitle(),
+          jobAmount: Math.round(Faker.finance.amount() * 1000) / 100,
+          jobArea: Faker.name.jobArea()
         });
       }
     return !this.props.error ? (
+      <div className="content">
         <SearchBox data={tableData} />
+        </div>
     ) : this.props.children;
   }
 

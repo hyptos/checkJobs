@@ -26,7 +26,9 @@ class SearchForm extends Component {
 
   render(){
       return (
-        <input type="text" ref="searchInput" placeholder="Search Name" value={this.state.query} onChange={this.doSearch}/>
+        <form className="pure-form">
+        <input id="search" type="text" ref="searchInput" placeholder="Search Name" value={this.state.query} onChange={this.doSearch}/>
+        </form>
       )
   }
 }
