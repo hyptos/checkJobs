@@ -24,10 +24,10 @@ class SearchBox extends Component {
       var queryResult=[];
       if(this.props.data.length > 0){
         this.props.data.forEach(function(person){
-          var name = person.name.toLowerCase();
+          var company = person.company.toLowerCase();
           var email = person.email.toLowerCase();
           queryText = queryText.toLowerCase();
-            if(name.indexOf(queryText)!=-1){
+            if(company.indexOf(queryText)!=-1){
               queryResult.push(person);
             }
             // if(email.indexOf(queryText)!=-1){
